@@ -1,0 +1,111 @@
+.pf_box {
+  width: 175px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  background: rgb(255, 129, 152, 0.5);
+  text-align: center;
+  line-height: 30px;
+  margin-top: -32px;
+  font-size: 13px;
+  position: relative;
+}
+
+.van-tabbar__placeholder {
+  height: 35px !important;
+}
+
+.box_big_center {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.box_item img {
+  width: 100%;
+  height: 280px;
+  border-radius: 5px;
+}
+
+.box_big_center1 {
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box_item {
+  width: 175px;
+  height: 320px;
+}
+
+.glg {
+  position: sticky;
+  top: 98px;
+  z-index: 9999999;
+}
+
+.tab_title {
+  color: rgb(255, 129, 152);
+  border-bottom: 2px solid rgb(255, 129, 152);
+}
+
+.tab_box {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  line-height: 40px;
+  background-color: white;
+  justify-content: space-around;
+  font-size: 15px;
+  color: #666;
+}
+
+.box_color {
+  width: 100%;
+  height: 5px;
+  background: #fff0f5;
+}
+
+.tab_title {
+  color: #ff6699;
+  border-bottom: 2px solid #ff6699;
+}
+
+.list_tab_text {
+  font-size: 13px;
+}
+
+.van-grid-item__content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 4px 8px !important;
+  background-color: #fff;
+}
+
+.box_top_perch {
+  width: 100%;
+  height: 98px;
+  background: white;
+}
+
+.box_top {
+  height: 98px;
+  width: 100%;
+  background: rgb(255, 129, 152);
+  color: white;
+  line-height: 44px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  font-size: 16px;
+  z-index: 9999;
+}

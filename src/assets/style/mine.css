@@ -1,0 +1,101 @@
+.van-tabs__nav--card .van-tab.van-tab--active {
+  color: #ffffff;
+  background: #FF8198;
+}
+
+.code .el-form-item__content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+.code button {
+  margin-left: 20px;
+  width: 140px;
+  text-align: center;
+  background: #FF8198;
+  border: 0px solid #FF8198;
+}
+
+.van-tabs__nav {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  background-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+.van-tabs__nav--card {
+  box-sizing: border-box;
+  height: 0.8rem;
+  margin: 0 0rem !important;
+
+  border-radius: 0.05333rem;
+  border: 1px solid black;
+}
+
+.van-tabs__nav--card .van-tab {
+  color: #ffffff;
+  background: #dbdbdb;
+
+}
+
+.transition {
+  width: 100px;
+  height: 100px;
+  background: #FF8198;
+  position: fixed;
+  border-radius: 10px;
+  line-height: 100px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: -57%;
+  color: white;
+  margin-left: 35%;
+}
+
+.van-tabs__nav--card .van-tab {
+
+  border-right: 1px solid #FF8198;
+}
+
+.van-tabs__nav--card {
+  box-sizing: border-box;
+  height: 30px;
+  margin: 0 16px;
+  border: 1px solid #DCDFE6;
+  border-radius: 2px;
+}
+
+.div_top {
+  width: 100%;
+  height: 70px;
+  text-align: center;
+  line-height: 70px;
+  font-size: 14px;
+
+}
+
+.van-tabs--card>.van-tabs__wrap {
+  height: 40px;
+}
+
+
+
+.el-input__suffix {
+  right: -2px;
+  transition: all .3s;
+  pointer-events: none;
+}
+
+.div_box {
+  width: 96%;
+  margin-left: 2%;
+  border: 1px solid rgb(235, 235, 235);
+  padding-top: 20px;
+  height: 470px;
+  margin-top: 15%;
+}
