@@ -6,27 +6,32 @@
       <van-tabs scrollspy sticky v-model="active">
         <van-tab>
           <template #title>
-            <van-icon size="23px" @click="back" style="margin-top:4px" name="arrow-left" />
+            <van-icon
+              size="23px"
+              @click="back"
+              style="margin-top:4px;color:black"
+              name="arrow-left"
+            />
           </template>
         </van-tab>
         <van-tab title="商品">
           <!-- //走马灯 -->
           <div class="detalis_swipe">
             <van-swipe class="my-swipe1" :autoplay="3000" indicator-color="white">
-              <van-swipe-item v-for="(item, index) in list_swipe" :key="index">
-                <img :src="item" alt width="100%" class="img_swipe1" />
+              <van-swipe-item>
+                <img :src="list_swipe" alt width="100%" class="img_swipe1" />
               </van-swipe-item>
             </van-swipe>
           </div>
           <!-- //title标题 -->
           <div style="width:97%;margin-left:1.5%">
-            <p style="  ;color:#222;font-size:16px">{{list_text.title}}</p>
+            <p style="  ;color:#222;font-size:16px">{{list_text.goodsName}}</p>
           </div>
           <!-- 价格 -->
           <div style="float:left">
-            <span style="color:rgb(255, 129, 152);font-size:24px">￥{{list_text.highNowPrice}}</span>
+            <span style="color:black;font-size:24px;margin-left:4%">{{list_text.goodsOldPrice}}</span>
             <span style=" margin-left: 9px;color:gray">
-              <s>￥{{list_text.highPrice}}</s>
+              <s>￥{{list_text.goodsPrice}}</s>
             </span>
           </div>
           <div>
@@ -36,9 +41,9 @@
           <br />
           <!-- 销量 -->
           <div class="sell">
-            <span>{{list_sell[0]}}</span>
-            <span>{{list_sell[1]}}</span>
-            <span>{{list_sell[2]}}</span>
+            <span>销量:{{list_text.goodsBuyNum}}</span>
+            <span>收藏:{{list_text.goodsFav}}</span>
+            <span>宝贝:{{list_text.hot}}</span>
           </div>
           <!-- 退换 -->
           <div class="sell1">
@@ -59,7 +64,7 @@
               <img :src="list_log.shopLogo" class="logo_img" alt />
             </span>
             <div style="width:10px"></div>
-            <span class="logo_text">{{list_log.name}}</span>
+            <span class="logo_text">{{list_log.shopName}}</span>
           </div>
           <!-- //店铺信息 -->
           <br />
@@ -68,23 +73,37 @@
             <div class="shop_text_box1">
               <div style="width:40%;margin-left:5%;text-align:center">
                 <br />
-                <span style="font-size:18px; ">{{list_log.cSells | sellCountFilter}}</span>
+                <span style="font-size:18px; ">{{list_log.sells | sellCountFilter}}</span>
                 <p></p>
                 <span>总销量</span>
               </div>
 
               <div style="width:40%;margin-left:5%;text-align: center;">
                 <br />
-                <span style="font-size:18px;">{{list_log.cGoods}}</span>
+                <span style="font-size:18px;">{{list_log.snum}}</span>
                 <p></p>
                 <span>全部宝贝</span>
               </div>
             </div>
 
             <div class="shop_text_box2">
-              <table v-for="(item, index) in list_text_logo" :key="index">
-                <td style="font-size:13px;width:65px;height:20px">{{item.name}}</td>
-                <td style="color:red;width:35px;height:20px">{{item.score}}</td>
+              <table>
+                <td style="font-size:13px;width:65px;height:20px">店铺评分:</td>
+                <td style="color:red;width:35px;height:20px">{{this.list_log.shopPiont}}</td>
+                <td>
+                  <span style="background:red;color:white">高</span>
+                </td>
+              </table>
+              <table>
+                <td style="font-size:13px;width:65px;height:20px">店铺评分:</td>
+                <td style="color:red;width:35px;height:20px">{{this.list_log.shopPriceOk}}</td>
+                <td>
+                  <span style="background:red;color:white">高</span>
+                </td>
+              </table>
+              <table>
+                <td style="font-size:13px;width:65px;height:20px">店铺评分:</td>
+                <td style="color:red;width:35px;height:20px">{{this.list_log.shopPiont}}</td>
                 <td>
                   <span style="background:red;color:white">高</span>
                 </td>
@@ -98,29 +117,6 @@
 
           <hr />
           <br />
-          <p style="  color: rgb(117, 117, 117);text-align:center;font-size:14px">穿着效果</p>
-          <br />
-          <div v-for="(item, index) in list_swipe" :key="index">
-            <img :src="item" alt width="100%" />
-          </div>
-          <p style="  color: rgb(117, 117, 117);text-align:center;font-size:14px">尺码</p>
-          <br />
-          <table
-            style="margin-left:2%;border-bottom:1px solid rgb(236, 236, 236)"
-            v-for="(item, index,b) in list_text_cm.tables"
-            :key="b"
-          >
-            <div v-for="(item1, index,a) in item" :key="a">
-              <td style="width:146px;height:40px;color:gray;line-height:40px">{{item1[0]}}</td>
-              <td style="width:60px;height:40px;color:gray;line-height:40px">{{item1[1]}}</td>
-              <td style="width:60px;height:40px;color:gray;line-height:40px">{{item1[2]}}</td>
-              <td style="width:60px;height:40px;color:gray;line-height:40px">{{item1[3]}}</td>
-            </div>
-          </table>
-          <br />
-          <p>{{list_text_cm.disclaimer}}</p>
-          <br />
-          <p style="border-bottom:1px solid rgb(230, 230, 230)"></p>
         </van-tab>
         <nut-backtop :bottom="70">
           <div
@@ -134,25 +130,11 @@
     justify-content: center;"
           >
             <div></div>
-            <nut-icon type="top" color="rgb(255, 129, 152)"></nut-icon>
+            <nut-icon type="top" color="black"></nut-icon>
           </div>
         </nut-backtop>
         <van-tab title="参数">
-          <br />
-          <!-- //商品详细信息 -->
-
-          <p style="  color: rgb(117, 117, 117);text-align:center;font-size:14px">产品参数</p>
-          <br />
-          <table
-            style="margin-left:2%;border-bottom:1px solid rgb(240, 240, 240)"
-            v-for="(item, index,b) in list_text_cj.set"
-            :key="b"
-          >
-            <td style="width:60px;height:35px;color:gray;line-height:35px">{{item.key}}</td>
-            <td
-              style="width:315px;height:35px;color:rgb(241, 85, 114);line-height:35px"
-            >{{item.value}}</td>
-          </table>
+          <div class="html_img" v-html="list_text.goodsIntroduce"></div>
         </van-tab>
         <van-tab title="评论">
           <br />
@@ -160,55 +142,53 @@
 
           <br />
           <p
-            style="color:white;height:25px;line-height:25px;margin:0 auto;width:80px;text-align:center;font-size:14px;background:rgb(241, 85, 114);border-radius: 8px;"
+            style="color:white;height:25px;line-height:25px;margin:0 auto;width:80px;text-align:center;font-size:14px;background:black;border-radius: 8px;"
           >用户评价</p>
           <!-- //用户头像 -->
-          <div class="user_box" v-for="(item, index) in list_text_pj" :key="index">
+          <div class="user_box">
             <div style="margin-left: 2%;">
-              <img class="user_img" :src="item.user.avatar" alt />
+              <img class="user_img" src="../../assets/01 gettyimages-981459238_resized.jpg" alt />
             </div>
-            <div style="margin-left: 2%;">{{item.user.uname}}</div>
+            <div style="margin-left: 2%;">林9九</div>
           </div>
           <!-- //评论 -->
-          <div v-for="(item, index,c) in list_text_pj" :key="c">
-            <p style="font-size:14px;width:94%;margin-left:3%;color:gray">{{item.content}}</p>
+          <div>
+            <p style="font-size:14px;width:94%;margin-left:3%;color:gray">如果我们都还活着,是不是该拼搏呢</p>
             <p
               style="font-size:14px;width:94%;margin-left:3%;color:gray"
-            >{{item.created | tiems}}&nbsp;&nbsp;&nbsp; {{item.style}}</p>
+            >{{152566266225 | tiems}}&nbsp;&nbsp;&nbsp;</p>
           </div>
           <br />
           <p
-            style="color:white;height:25px;line-height:25px;margin:0 auto;width:80px;text-align:center;font-size:14px;background:rgb(241, 85, 114);border-radius: 8px;"
+            style="color:white;height:25px;line-height:25px;margin:0 auto;width:80px;text-align:center;font-size:14px;background:black;border-radius: 8px;"
           >更多评价</p>
           <br />
           <p style="border-bottom:1px solid rgb(230, 230, 230)"></p>
         </van-tab>
         <van-tab title="推荐">
-          <div class="div_content">
-            <div
-              v-for="(item, index) in tab_content.slice(3,9)"
-              :key="index"
-              @click="detail(item.iid)"
-            >
-              <div class="div_mig">
-                <img class="div_mig1" v-lazy="item.show.img" alt />
-
-                <span
-                  style="display: inline-block;
-                    white-space: nowrap; 
-                     width: 100%; 
-                    overflow: hidden;
-                    text-overflow:ellipsis;"
-                >{{item.title}}</span>
-                <div class="xx_box">
-                  <div>
-                    <span style="color:red">{{item.price}}</span>
+          <div class="box_big_center">
+            <div v-for="(item, index) in list_item" @click="detail(item.goodsId)" :key="index">
+              <div style="width:100%">
+                <div class="box_item">
+                  <img v-lazy="item.goodsLogo" width="100%" />
+                  <div class="pf_box">销量:{{item.goodsBuyNum}}</div>
+                  <span
+                    style="overflow: hidden;
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    display: box;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;"
+                  >{{item.goodsName}}</span>
+                  <div class="box_big_center1">
+                    <div style="color:black">{{item.goodsOldPrice}}</div>
+                    <div style="margin-left:5%">
+                      <van-icon name="star-o" />
+                    </div>
+                    <div>{{item.goodsFav}}</div>
                   </div>
-                  <div style="width:8px"></div>
-                  <div>
-                    <van-icon name="star-o" />
-                  </div>
-                  <div>{{item.cfav}}</div>
                 </div>
               </div>
             </div>
@@ -216,12 +196,19 @@
         </van-tab>
       </van-tabs>
       <div style="width:100%;height:50px"></div>
+
       <van-goods-action>
-        <van-goods-action-icon color="#FF6699" badge="9" icon="comment-o" text="客服" />
-        <van-goods-action-icon color="#FF6699" icon="shop-o" text="店铺" />
-        <van-goods-action-icon color="#FF6699" icon="star-o" text="收藏" />
-        <van-goods-action-button color="#be99ff" type="warning" text="加入购物车" />
-        <van-goods-action-button color="#FF6699" type="danger" text="立即购买" />
+        <van-goods-action-icon color="black" icon="comment-o" text="客服" />
+        <van-goods-action-icon
+          color="black"
+          @click="cart_path"
+          icon="shopping-cart-o"
+          :badge="this.num"
+          text="购物车"
+        />
+        <van-goods-action-icon color="black" icon="star-o" text="收藏" />
+        <van-goods-action-button color="black" @click="cart_add" type="warning" text="加入购物车" />
+        <van-goods-action-button color="black" type="danger" text="立即购买" />
       </van-goods-action>
     </div>
   </div>
@@ -230,18 +217,19 @@
 <script>
 import axios from "axios"
 
+import { getHomedetali, getHometabList, postcartadd, postcartadd_legth } from '../../api/user'
 export default {
   data () {
     return {
       active: 1,
       list_swipe: [],
       list_text: [],
-      list_sell: [],
+      num: '',
+      cart_add_num: 1,
       list_shopInfo: [],
       list_log: [],
-      list_text_logo: [],
-      list_text_cm: [],
-      list_text_cj: [],
+
+      list_item: [],
       list_text_pj: [],
       tab_content: [],
       gotop: false
@@ -269,68 +257,79 @@ export default {
 
   },
   mounted () {
+
+    postcartadd_legth({}).then(res => {
+      console.log(res)
+      this.num = res.data
+    })
+    getHometabList(
+      {
+        page: this.page,
+        pageSize: 20,
+        sortType: this.sortType
+      }
+    ).then(res => {
+      console.log(res.data)
+      this.list_item = res.data
+    })
     window.addEventListener("scroll", this.handleScroll, true);
-    axios.get("http://123.207.32.32:8000/api/x6/home/data", {
-      params: {
-        type: 'pop',
-        page: 1
-      }
+
+    let goodsId = this.$route.query.id
+    getHomedetali({
+      goodsId: goodsId
+    }).then(res => {
+      console.log(res.data)
+      this.list_swipe = res.data[0].goodsLogo
+      this.list_text = res.data[0]
+      this.list_shopInfo = res.data[2]
+      this.list_log = res.data[1]
+
+
+
     })
-      .then(res => {
-        console.log(res.data.data.list)
-        this.tab_content = res.data.data.list
-      })
-      .catch(err => {
-        console.error(err);
-      })
-    let id = this.$route.query.id
-
-    axios.get("http://123.207.32.32:8000/api/x6/detail", {
-      params: {
-        iid: id
-      }
-    })
-      .then(res => {
-        console.log(res.data.result)
-        this.list_swipe = res.data.result.itemInfo.topImages
-        this.list_text = res.data.result.itemInfo
-        this.list_sell = res.data.result.columns
-        this.list_shopInfo = res.data.result.shopInfo.services
-        this.list_log = res.data.result.shopInfo
-        this.list_text_logo = res.data.result.shopInfo.score
-        this.list_text_cm = res.data.result.itemParams.rule
-        this.list_text_cj = res.data.result.itemParams.info
-        this.list_text_pj = res.data.result.rate.list
-
-      })
-
   },
   methods: {
+    cart_path () {
+      this.$router.push('/cart')
+
+    },
+    async cart_add_item () {
+      let res = await postcartadd({
+        product_id: this.$route.query.id,
+        product_amount: this.cart_add_num++,
+        price: this.list_text.goodsPrice
+      })
+      console.log(res)
+      this.cart_add_item_length()
+    },
+    async cart_add_item_length () {
+      let res = await postcartadd_legth({})
+      console.log(res)
+      this.num = res.data
+      this.$toast('添加购物车成功');
+    },
+    cart_add () {
+      this.cart_add_item()
+
+
+    },
     handleScroll () {
       let scrolltop = document.documentElement.scrollTop || document.body.scrollTop;
       scrolltop > 30 ? (this.gotop = true) : (this.gotop = false);
     },
     detail (id) {
 
-
-      axios.get("http://123.207.32.32:8000/api/x6/detail", {
-        params: {
-          iid: id
-        }
+      getHomedetali({
+        goodsId: id
+      }).then(res => {
+        console.log(res.data)
+        console.log(res.data[3][0].comment_body)
+        this.list_swipe = res.data[0].goodsLogo
+        this.list_text = res.data[0]
+        this.list_shopInfo = res.data[2]
+        this.list_log = res.data[1]
       })
-        .then(res => {
-          console.log(res.data.result)
-          this.list_swipe = res.data.result.itemInfo.topImages
-          this.list_text = res.data.result.itemInfo
-          this.list_sell = res.data.result.columns
-          this.list_shopInfo = res.data.result.shopInfo.services
-          this.list_log = res.data.result.shopInfo
-          this.list_text_logo = res.data.result.shopInfo.score
-          this.list_text_cm = res.data.result.itemParams.rule
-          this.list_text_cj = res.data.result.itemParams.info
-          this.list_text_pj = res.data.result.rate.list
 
-        })
       let top = document.documentElement.scrollTop || document.body.scrollTop;
       // 实现滚动效果 
       const timeTop = setInterval(() => {
@@ -353,7 +352,22 @@ export default {
   },
 }
 </script>
-
+<style >
+.van-tabs--line .van-tabs__wrap {
+  height: 44px;
+  background: white;
+}
+.van-tabs__line {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  z-index: 1;
+  width: 40px;
+  height: 3px;
+  background-color: #000000 !important;
+  border-radius: 3px;
+}
+</style>
 <style  scoped>
 .box_big {
   width: 375px;
@@ -361,7 +375,7 @@ export default {
 }
 
 .van-tab--active {
-  color: rgb(255, 129, 152);
+  color: black;
   font-weight: 500;
 }
 
@@ -371,7 +385,7 @@ export default {
   z-index: 1;
   width: 40px;
   height: 0px;
-  background-color: rgb(255, 129, 152) !important;
+  background-color: black !important;
   font-weight: bold;
 }
 
@@ -383,7 +397,9 @@ export default {
   height: 400px !important;
   text-align: center;
 }
-
+.html_img >>> img {
+  width: 100%;
+}
 .div_mig {
   width: 175px;
   height: 303px;
@@ -402,6 +418,30 @@ export default {
 .user_box {
   display: flex;
   align-items: center;
+}
+.box_big_center {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.box_item img {
+  width: 100%;
+  height: 280px;
+  border-radius: 5px;
+}
+
+.box_big_center1 {
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box_item {
+  width: 175px;
+  height: 320px;
 }
 
 .user_img {
@@ -425,7 +465,7 @@ export default {
   width: 46px;
   height: 17.6px;
   border-radius: 8px;
-  background: rgb(241, 85, 114);
+  background: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   display: inline-block;
   text-align: center;
@@ -467,7 +507,18 @@ export default {
   border-radius: 50% 50%;
   border: 2px solid rgb(219, 218, 218);
 }
-
+.pf_box {
+  width: 175px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  background: rgb(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 30px;
+  margin-top: -32px;
+  font-size: 13px;
+  position: relative;
+}
 .logo_box {
   display: flex;
   align-items: center;

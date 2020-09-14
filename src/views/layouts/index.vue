@@ -6,14 +6,14 @@
       </keep-alive>
       <router-view v-wechat-title="$route.meta.title" v-if="!$route.meta.keepAlive"></router-view>
     </div>
-    <van-tabbar placeholder fixed route active-color="#FF8299">
+    <van-tabbar placeholder fixed route active-color="#000">
       <van-tabbar-item
         v-for="(item, index) in icon"
         :key="index"
         replace
         :to="item.to"
         :icon="item.icon"
-      >{{item.title}}</van-tabbar-item>
+      ><span>{{item.title}}</span></van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
@@ -54,5 +54,27 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.van-tabbar-item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    color: #939394;
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+}
 </style>

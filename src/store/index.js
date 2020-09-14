@@ -6,7 +6,8 @@ Vue.use(Vuex);
 
 //数据中心
 let state = {
-  token: ''
+  token: '',
+  num: "0"
 }
 //actions 异步操作（定时器，ajax）
 let actions = {
@@ -21,6 +22,9 @@ let mutations = {
   //   //state指的是 state数据中心
   //   state.count += val;
   // }
+  mutationsNUM (state, val) {
+    state.num = val
+  },
   toToke (state, val) {
     state.token = val
   }

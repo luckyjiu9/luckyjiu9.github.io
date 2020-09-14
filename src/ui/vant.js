@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import {
   Button,
+  SwipeCell,
+  Toast,
+  PasswordInput, NumberKeyboard,
   GoodsAction,
   GoodsActionIcon,
   GoodsActionButton,
@@ -19,9 +22,50 @@ import {
   Notify,
   Tab, Tabs,
   Dialog,
-  Overlay
+  Overlay,
+  Sku,
+  Card,
+  Empty,
+  SubmitBar,
+  AddressList,
+  ContactCard,
+  ContactList,
+  ContactEdit,
+  popup,
+  Checkbox,
+  CheckboxGroup,
+  Stepper,
+  Field,
+  RadioGroup,
+  Radio,
+  Cell,
+  CellGroup,
+  Sidebar,
+  SidebarItem
 
 } from 'vant';
+Vue.use(Sidebar);
+Vue.use(SidebarItem);
+Vue.use(PasswordInput);
+Vue.use(NumberKeyboard);
+Vue.use(Cell);
+Vue.use(CellGroup);
+Vue.use(Radio);
+Vue.use(RadioGroup);
+Vue.use(Field);
+Vue.use(Stepper);
+Vue.use(popup);
+Vue.use(ContactCard);
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+Vue.use(ContactList);
+Vue.use(ContactEdit);
+Vue.use(AddressList);
+Vue.use(SubmitBar);
+Vue.use(Toast);
+Vue.use(SwipeCell);
+Vue.use(Card);
+Vue.use(Sku);
 Vue.use(Tab);
 Vue.use(Overlay);
 Vue.use(Dialog);
@@ -35,6 +79,7 @@ Vue.use(Icon);
 Vue.use(Search);
 Vue.use(List);
 Vue.use(Swipe);
+Vue.use(Empty);
 Vue.use(SwipeItem);
 Vue.use(VanImage);
 Vue.use(Grid);

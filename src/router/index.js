@@ -40,9 +40,18 @@ const routes = [
         component: () => import('../views/Classify/Classify.vue'),
         meta: {
           title: '分类',
+          keepAlive: true
+        },
+      },
+      {
+        path: '/mine',
+        name: 'mine',
+        component: () => import('../views/Mine/Mine.vue'),
+        meta: {
+          title: '关于我',
           keepAlive: false
         },
-      }
+      },
     ]
   },
   {
@@ -63,12 +72,40 @@ const routes = [
       keepAlive: false
     },
   },
+ 
   {
-    path: '/mine',
-    name: 'mine',
-    component: () => import('../views/Mine/Mine.vue'),
+    path: '/order',
+    name: 'order',
+    component: () => import('../views/Cart/order.vue'),
     meta: {
-      title: '关于我',
+      title: '订单',
+      keepAlive: false
+    },
+  },
+  {
+    path: '/createpay',
+    name: 'createpay',
+    component: () => import('../views/Cart/createpay.vue'),
+    meta: {
+      title: '支付',
+      keepAlive: false
+    },
+  },
+  {
+    path: '/pay',
+    name: 'pay',
+    component: () => import('../views/Cart/pay.vue'),
+    meta: {
+      title: '支付成功',
+      keepAlive: false
+    },
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/login/login.vue'),
+    meta: {
+      title: '登录',
       keepAlive: false
     },
   },
@@ -100,8 +137,8 @@ router.beforeEach((to, from, next) => {
     next();
   } else {
     //如果没有登录你访问的不是login就让你强制跳转到login页面
-    if (to.path !== "/mine") {
-      next({ path: "/mine" });
+    if (to.path !== "/login") {
+      next({ path: "/login" });
     } else {
       next();
     }

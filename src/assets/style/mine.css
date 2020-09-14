@@ -1,6 +1,6 @@
 .van-tabs__nav--card .van-tab.van-tab--active {
   color: #ffffff;
-  background: #FF8198;
+  background: black;
 }
 
 .code .el-form-item__content {
@@ -9,12 +9,18 @@
   justify-content: space-between !important;
 }
 
+.my-slider {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: -10%;
+}
+
 .code button {
   margin-left: 20px;
   width: 140px;
   text-align: center;
-  background: #FF8198;
-  border: 0px solid #FF8198;
+  background: black;
+  border: 0px solid black;
 }
 
 .van-tabs__nav {
@@ -46,7 +52,7 @@
 .transition {
   width: 100px;
   height: 100px;
-  background: #FF8198;
+  background: black;
   position: fixed;
   border-radius: 10px;
   line-height: 100px;
@@ -59,7 +65,7 @@
 
 .van-tabs__nav--card .van-tab {
 
-  border-right: 1px solid #FF8198;
+  border-right: 1px solid black;
 }
 
 .van-tabs__nav--card {
@@ -94,8 +100,8 @@
 .div_box {
   width: 96%;
   margin-left: 2%;
-  border: 1px solid rgb(235, 235, 235);
-  padding-top: 20px;
-  height: 470px;
-  margin-top: 15%;
+
+  padding-top: 10px;
+  
+  margin-top: 5%;
 }

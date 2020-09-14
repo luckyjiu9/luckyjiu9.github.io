@@ -12,7 +12,8 @@ import 'lib-flexible/flexible'
 //src下创建--ui-->(你引入的ui名字).js
 // ------------------------------
 
-
+import md5 from 'js-md5';
+Vue.prototype.$md5 = md5;
 //vant
 import '@/ui/vant'
 //element
